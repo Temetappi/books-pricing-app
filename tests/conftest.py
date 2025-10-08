@@ -1,3 +1,5 @@
+from typing import AsyncGenerator
+
 import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
@@ -22,7 +24,7 @@ async def session_fixture():
 
 
 @pytest_asyncio.fixture(name="client")
-async def client_fixture(session: AsyncSession) -> AsyncClient:
+async def client_fixture(session: AsyncSession) -> AsyncGenerator:
     def get_session_override():
         return session
 

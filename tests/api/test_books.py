@@ -97,7 +97,7 @@ async def test_create_book_invalid(client: AsyncClient, data) -> None:
 async def test_get_book(session: Session, client: AsyncClient) -> None:
     book = Book(id=1, title="title1", author="author1", pages=100, rating=2.5, price=10)
     session.add(book)
-    await session.flush()
+    session.flush()
     async with client:
         response = await client.get(f"/books/{book.id}")
     assert response.status_code == 200
@@ -136,7 +136,7 @@ async def test_read_books(
     session.add(book_2)
     session.add(book_1)
     session.add(book_2)
-    await session.flush()
+    session.flush()
     async with client:
         response = await client.get(
             "/books/",
@@ -159,7 +159,7 @@ async def test_read_books_filter_by_title(
     )
     session.add(book_1)
     session.add(book_2)
-    await session.flush()
+    session.flush()
     async with client:
         response = await client.get(
             "/books/",
@@ -179,7 +179,7 @@ async def test_read_books_filter_by_title(
 async def test_update_book(session: Session, client: AsyncClient) -> None:
     book = Book(id=1, title="title1", author="author1", pages=100, rating=2.5, price=10)
     session.add(book)
-    await session.flush()
+    session.flush()
 
     data = {"title": "Updated title"}
     async with client:
@@ -211,7 +211,7 @@ async def test_update_book_not_found(client: AsyncClient) -> None:
 async def test_delete_book(session: Session, client: AsyncClient) -> None:
     book = Book(id=1, title="title1", author="author1", pages=100, rating=2.5, price=10)
     session.add(book)
-    await session.flush()
+    session.flush()
     async with client:
         response = await client.delete(
             f"/books/{book.id}",
