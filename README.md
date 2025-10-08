@@ -19,4 +19,5 @@ that the database is created and up to date with the latest migration.
 Initial test data is created in one of the migrations.
 
 The API is available at localhost:8080
+
 Swagger is available at http://localhost:8080/docs
