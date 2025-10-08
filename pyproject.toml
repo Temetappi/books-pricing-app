@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Teemu Rahkonen <teemu_rahkonen@epam.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlmodel = "^0.0.25"
+pydantic-settings = "^2.11.0"
+asyncpg = "^0.30.0"
+fastapi = {extras = ["standard"], version = "^0.118.0"}
+alembic = "^1.16.5"
+psycopg = "^3.2.10"
+sqlalchemy-utils = "^0.42.0"
+
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+ruff = "^0.13.3"
+mypy = "^1.18.2"
+pytest-asyncio = "^1.2.0"
+aiosqlite = "^0.21.0"
+greenlet = "^3.2.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
