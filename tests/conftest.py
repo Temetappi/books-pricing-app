@@ -11,7 +11,7 @@ from app.main import app
 
 
 @pytest_asyncio.fixture(name="session")
-async def session_fixture():
+async def session_fixture() -> AsyncGenerator:
     engine = create_async_engine(
         "sqlite+aiosqlite://",
         connect_args={"check_same_thread": False},
