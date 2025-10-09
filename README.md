@@ -8,10 +8,10 @@ Poetry
 
 Python 3.12
 
+---
 ## Running the application
 
 ### In docker
-
 To run the application, run the following command in a terminal:
 
 **docker compose up**
@@ -22,6 +22,7 @@ that the database is created and up to date with the latest migration.
 
 Initial test data is created in one of the migrations.
 
+---
 ### Locally
 Run the following commands
 
@@ -29,8 +30,10 @@ poetry install
 
 fastapi dev app/main.py --port 8080
 
+Note: when running locally, make sure to change the change the value of POSTGRES_SERVER
+in the .env file to "localhost"
 
-
+---
 
 In both cases, the API is available at localhost:8080
 
