@@ -31,6 +31,7 @@ fastapi dev app/main.py --port 8080
 
 
 
+
 In both cases, the API is available at localhost:8080
 
 Swagger is available at http://localhost:8080/docs
@@ -41,4 +42,5 @@ Swagger is available at http://localhost:8080/docs
 Run the following commands:
 
 poetry install (if not previously done)
+
 pytest tests
