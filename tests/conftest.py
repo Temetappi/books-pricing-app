@@ -3,10 +3,9 @@ from typing import AsyncGenerator
 import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlmodel import SQLModel
 from sqlmodel.pool import StaticPool
 
-from app.core.db import get_session
+from app.core.db import get_session, Base
 from app.main import app
 
 
@@ -18,7 +17,7 @@ async def session_fixture() -> AsyncGenerator:
         poolclass=StaticPool,
     )
     async with engine.begin() as conn:
-        await conn.run_sync(SQLModel.metadata.create_all)
+        await conn.run_sync(Base.metadata.create_all)
     async with AsyncSession(engine) as session:
         yield session
 

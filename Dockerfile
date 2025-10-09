@@ -27,4 +27,4 @@ COPY ./tests /app/tests
 
 RUN poetry install --without dev
 
-CMD ["fastapi", "run", "--workers", "1", "app/main.py"]
+CMD ["fastapi", "run", "--workers", "1", "app/main.py", "--port", "8080"]

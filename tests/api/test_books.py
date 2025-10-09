@@ -118,7 +118,7 @@ async def test_read_book_not_found(client: AsyncClient) -> None:
         )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == f"Book not found with id {id}"
+    assert content["detail"] == f"Item not found with id {id}"
 
 
 @pytest.mark.asyncio
@@ -204,7 +204,7 @@ async def test_update_book_not_found(client: AsyncClient) -> None:
         )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == f"Book not found with id {id}"
+    assert content["detail"] == f"Item not found with id {id}"
 
 
 @pytest.mark.asyncio
@@ -228,4 +228,4 @@ async def test_delete_book_not_found(client: AsyncClient) -> None:
         )
     assert response.status_code == 404
     content = response.json()
-    assert content["detail"] == f"Book not found with id {id}"
+    assert content["detail"] == f"Item not found with id {id}"

@@ -23,7 +23,7 @@ services:
 
   migrate:
     build: .
-    command: bash scripts/prestart.sh
+    command: alembic upgrade head
     depends_on:
       db:
         condition: service_healthy
@@ -38,7 +38,7 @@ services:
 
   backend:
     ports:
-      - "8080:8000"
+      - "8080:8080"
     build: .
     restart: always
     depends_on:
